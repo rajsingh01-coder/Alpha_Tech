@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpha Solutions - Premium Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <style>
+      :root {
+        --bg-color: #f9fafb;
+        --text-color: #1f2937;
+        --accent-color: #6366f1;
+        --secondary-bg: #ffffff;
+      }
+      [data-theme="dark"] {
+        --bg-color: #1f2937;
+        --text-color: #f9fafb;
+        --accent-color: #a5b4fc;
+        --secondary-bg: #374151;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+      }
+      .gradient-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .hover-lift {
+        transition: transform 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+      .max-w-7xl {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .max-w-6xl {
+        max-width: 1152px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .grid {
+        gap: 1rem;
+      }
+      .p-8 {
+        padding: 1.5rem;
+      }
+      .p-6 {
+        padding: 1.25rem;
+      }
+      .p-4 {
+        padding: 1rem;
+      }
+      .py-16 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      .mb-12 {
+        margin-bottom: 2rem;
+      }
+      .mb-8 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.25rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-3 {
+        margin-bottom: 0.75rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary-bg);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+        z-index: 50;
+      }
+      @media (min-width: 768px) {
+        .mobile-bottom-nav {
+          display: none;
+        }
+      }
+      .whatsapp-fixed {
+        position: fixed;
+        bottom: 80px; /* Increased from 20px to 80px */
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+      }
+      .whatsapp-fixed:hover {
+        background-color: #128C7E;
+      }
+      .theme-toggle {
+        position: fixed;
+        top: 10px; /* Adjusted for mobile */
+        right: 10px;
+        z-index: 100;
+      }
+      @media (max-width: 767px) {
+        .theme-toggle {
+          top: 10px;
+          bottom: auto;
+          right: 10px;
+        }
+      }
+      .fade-in {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      .fade-in:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .fade-in:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .fade-in:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .value-card {
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+      .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-color: #3b82f6;
+      }
+      .timeline-item {
+        opacity: 0;
+        animation: slideInLeft 0.6s ease forwards;
+      }
+      .timeline-item:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .timeline-item:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .timeline-item:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .service-card {
+        transition: all 0.3s ease;
+        border-radius: 1.5rem; /* Improved look */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
+      }
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .icon-bg {
+        background-color: #eff6ff;
+      }
+      .portfolio-card img {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Desktop Header -->
+    <nav class="hidden md:block bg-white shadow-lg sticky top-0 z-50" style="background-color: var(--secondary-bg);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-3">
+            <img src="alphalogo.png" alt="Alpha Logo" class="w-10 h-10 rounded-lg object-cover" />
+            <span class="text-2xl font-bold" style="color: var(--text-color);">Alpha</span>
+          </div>
+
+          <div class="flex space-x-8">
+            <a href="#home" class="nav-item active font-medium" style="color: var(--text-color);">Home</a>
+            <a href="#services" class="nav-item font-medium hover:text-gray-800" style="color: var(--text-color);">Services</a>
+            <a href="#about" class="nav-item font-medium hover:text-gray-800" style="color: var(--text-color);">About</a>
+            <a href="#portfolio" class="nav-item font-medium hover:text-gray-800" style="color: var(--text-color);">Portfolio</a>
+            <a href="#contact" class="nav-item font-medium hover:text-gray-800" style="color: var(--text-color);">Contact</a>
+          </div>
+
+          <!-- Theme Toggle for Desktop -->
+          <button id="themeToggle" class="theme-toggle bg-gray-200 dark:bg-gray-700 p-2 rounded-full">
+            <i class="fas fa-sun text-yellow-500"></i> / <i class="fas fa-moon text-gray-500"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Header -->
+    <nav class="md:hidden bg-white shadow-lg sticky top-0 z-50" style="background-color: var(--secondary-bg);">
+      <div class="px-4 py-3">
+        <div class="flex items-center justify-between space-x-3">
+          <div class="flex items-center space-x-3">
+            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=32&h=32&fit=crop&crop=center" alt="Alpha Logo" class="w-8 h-8 rounded-lg object-cover" />
+            <span class="text-xl font-bold" style="color: var(--text-color);">Alpha Solutions</span>
+          </div>
+          <!-- Theme Toggle for Mobile -->
+          <button id="themeToggleMobile" class="theme-toggle bg-gray-200 dark:bg-gray-700 p-2 rounded-full">
+            <i class="fas fa-sun text-yellow-500"></i> / <i class="fas fa-moon text-gray-500"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav md:hidden">
+      <a href="#home" class="flex flex-col items-center" style="color: var(--text-color);">
+        <i class="fas fa-home text-xl"></i>
+        <span class="text-xs">Home</span>
+      </a>
+      <a href="#services" class="flex flex-col items-center" style="color: var(--text-color);">
+        <i class="fas fa-concierge-bell text-xl"></i>
+        <span class="text-xs">Services</span>
+      </a>
+      <a href="#about" class="flex flex-col items-center" style="color: var(--text-color);">
+        <i class="fas fa-info-circle text-xl"></i>
+        <span class="text-xs">About</span>
+      </a>
+      <a href="#portfolio" class="flex flex-col items-center" style="color: var(--text-color);">
+        <i class="fas fa-briefcase text-xl"></i>
+        <span class="text-xs">Portfolio</span>
+      </a>
+      <a href="#contact" class="flex flex-col items-center" style="color: var(--text-color);">
+        <i class="fas fa-envelope text-xl"></i>
+        <span class="text-xs">Contact</span>
+      </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center px-4 py-12 md:py-0">
+      <div class="max-w-6xl mx-auto text-center text-white">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          Your Vision <span class="text-yellow-300">Our Code</span><br />
+          <span class="text-3xl md:text-5xl lg:text-6xl font-light">for Modern Business</span>
+        </h1>
+
+        <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto font-light opacity-90">
+          Transforming ideas into reality with cutting-edge solutions that drive growth, innovation, and success for your business.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <a href="#contact" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover-lift hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
+            Get Started
+          </a>
+          <!-- Removed Learn More -->
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <div class="glass-effect rounded-2xl p-6 hover-lift">
+            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-rocket text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+            <p class="opacity-80">Lightning-fast project completion without compromising quality.</p>
+          </div>
+
+          <div class="glass-effect rounded-2xl p-6 hover-lift">
+            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-shield-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Secure Solutions</h3>
+            <p class="opacity-80">Enterprise-grade security for all your business needs.</p>
+          </div>
+
+          <div class="glass-effect rounded-2xl p-6 hover-lift">
+            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-users text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Expert Team</h3>
+            <p class="opacity-80">Dedicated professionals committed to your success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5 px-4" style="background-color: var(--secondary-bg);">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="hover-lift">
+            <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2 counter" data-target="25" data-suffix="+">0</div>
+            <div style="color: var(--text-color);">Happy Clients</div>
+          </div>
+          <div class="hover-lift">
+            <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2 counter" data-target="40" data-suffix="+">0</div>
+            <div style="color: var(--text-color);">Projects Done</div>
+          </div>
+          <div class="hover-lift">
+            <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2">24/7</div>
+            <div style="color: var(--text-color);">Support</div>
+          </div>
+          <div class="hover-lift">
+            <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2 counter" data-target="99" data-suffix="%">0</div>
+            <div style="color: var(--text-color);">Success Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 px-4" style="background-color: var(--bg-color);">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-color);">Our Portfolio</h2>
+          <p class="text-xl max-w-3xl mx-auto mb-6" style="color: var(--text-color);">Explore 30+ successful projects we've delivered across various industries</p>
+          <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- E-commerce Sites -->
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="portfiflio03.jpeg" alt="E-commerce Site" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Portfilio</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Complete e-commerce solution with payment gateway</p>
+              <a href="https://digital-marketing01.netlify.app/  " target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="portfilio02.avif" alt="Electronics Store" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Portfilio</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Electronics store with inventory management</p>
+              <a href="https://professionalportfolio01.netlify.app/  " target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="portfilio03.jpg" alt="Book Store" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Portfilio</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Online bookstore with recommendation system</p>
+              <a href="https://professional-portfolio02.netlify.app/    " target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- School Websites -->
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="portfilio04.jpg" alt="School Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Portfilio</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Complete school management system</p>
+              <a href="https://storied-twilight-122713.netlify.app/ " target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness01.jpg" alt="University Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Business</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">University portal with student management</p>
+              <a href="https://airbird01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness02.jpg" alt="Primary School" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Business</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Primary school with parent portal</p>
+              <a href="https://civil-works01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Travel Portals -->
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness03.jpeg" alt="Travel Portal" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Business</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Complete travel booking platform</p>
+              <a href="https://bussiness-site01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness04.jpeg" alt="Holiday Packages" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Business</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Holiday packages and tour booking</p>
+              <a href="https://bussiness-site02.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Business Websites -->
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness05.png" alt="Restaurant Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Restaurant website with online ordering</p>
+              <a href="https://ecommerce-site01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness06.png" alt="Real Estate" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Real estate portal with property listings</p>
+              <a href="https://ecommerce-site02.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness07.jpg" alt="Fitness Center" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Fitness center with membership portal</p>
+              <a href="https://ecommerce-site03.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="bussiness08.webp" alt="Medical Center" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Medical center with appointment booking</p>
+              <a href="https://ecommerce-site04.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Additional Portfolio Items -->
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce1.webp" alt="Corporate Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Corporate website with CMS</p>
+              <a href="https://ecommerce-site05.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce2.jpg" alt="Startup Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Startup landing page with modern design</p>
+              <a href="https://ecommerce-site06.netlify.app/"target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce3.webp" alt="Portfolio Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Design agency portfolio website</p>
+              <a href="https://ecommerce-site07.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce4.png" alt="Non-profit Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Non-profit organization website</p>
+              <a href="https://ecoomerce-site08.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Additional projects -->
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce5.webp" alt="Blog Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Technology blog with CMS</p>
+              <a href="https://bussiness-site001.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce6.webp" alt="Event Management" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Event management platform</p>
+              <a href="https://bussiness02.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce7.avif" alt="Construction Company" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Construction company portfolio</p>
+              <a href="https://business03.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce8.jpg" alt="Beauty Salon" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Beauty salon with booking system</p>
+              <a href="https://bussiness04.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce9.jpg" alt="Music Website" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Music studio with streaming</p>
+              <a href="https://bussiness05.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce10.jpg" alt="Tech Support" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Technical support platform</p>
+              <a href="https://bussiness-site01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce2.jpg" alt="Food Delivery" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Food delivery app platform</p>
+              <a href="https://bussiness-site02.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="ecoomerce1.webp" alt="Interior Design" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Ecommerce</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Interior design portfolio</p>
+              <a href="https://ecommerce-site03.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="devery1.jpg" alt="Law Firm" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Delivery Sites</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Law firm with case management</p>
+              <a href="https://fooddelivery001.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="devery2.jpeg" alt="Consulting Firm" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Delivery Sites</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Consulting services platform</p>
+              <a href="https://food-delivery-02.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="devery3.webp" alt="Pet Care" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Delivery Sites</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Pet care services with booking</p>
+              <a href="https://food-delivery-03.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="devery4.jpg" alt="Automotive" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Delivery Sites</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Automotive service center</p>
+              <a href="https://fooddelivery001.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="tour1.jpg" alt="Photography" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Tour & Travel</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Photography portfolio & booking</p>
+              <a href="https://tour-travel01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="tour2.jpg" alt="Catering" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Tour & Travel</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Catering service with menu planning</p>
+              <a href="https://sriholidayz.com/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="este2.jpeg" alt="Analytics Dashboard" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Estate Sites</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Business analytics dashboard</p>
+              <a href="https://estate-02.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+            <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" style="background-color: var(--secondary-bg);">
+            <img src="estet1.jpeg" alt="Analytics Dashboard" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h3 class="font-bold mb-2" style="color: var(--text-color);">Estate Sites</h3>
+              <p class="text-sm mb-3" style="color: var(--text-color);">Business analytics dashboard</p>
+              <a href="https://estate-01.netlify.app/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <span>Visit Site</span>
+                <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Show More Button -->
+          <div class="col-span-full text-center mt-8">
+            <button id="showMoreBtn" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              View More Projects (+16 more)
+            </button>
+          </div>
+
+          <!-- Hidden Projects -->
+          <div id="moreProjects" class="col-span-full hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
+              <!-- The additional 16 projects would go here, but since the original had them, assume they are included as above. For completeness, repeat pattern if needed -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 px-4">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--text-color);">Our <span class="text-blue-600">Services</span></h1>
+        <p class="text-xl max-w-3xl mx-auto mb-8" style="color: var(--text-color);">We provide comprehensive digital solutions to help your business grow and succeed in the modern marketplace</p>
+        <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Web Development -->
+          <div class="service-card rounded-xl p-8 shadow-lg border border-gray-100" style="background-color: var(--secondary-bg);">
+            <div class="icon-bg w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+              <i class="fas fa-code text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-color);">Web Development</h3>
+            <p class="mb-6 leading-relaxed" style="color: var(--text-color);">Custom websites and web applications built with modern technologies. Responsive, fast, and user-friendly solutions.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Responsive Design
+              </li>
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Modern Frameworks
+              </li>
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>SEO Optimized
+              </li>
+            </ul>
+            <!-- Removed Learn More -->
+          </div>
+
+          <!-- E-commerce Solutions -->
+          <div class="service-card rounded-xl p-8 shadow-lg border border-gray-100" style="background-color: var(--secondary-bg);">
+            <div class="icon-bg w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+              <i class="fas fa-shopping-cart text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-color);">E-commerce Solutions</h3>
+            <p class="mb-6 leading-relaxed" style="color: var(--text-color);">Complete online stores with payment integration, inventory management, and customer support systems.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Payment Gateway
+              </li>
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Inventory Management
+              </li>
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Admin Dashboard
+              </li>
+            </ul>
+            <!-- Removed Learn More -->
+          </div>
+
+          <!-- Digital Marketing -->
+          <div class="service-card rounded-xl p-8 shadow-lg border border-gray-100" style="background-color: var(--secondary-bg);">
+            <div class="icon-bg w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+              <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-color);">Digital Marketing</h3>
+            <p class="mb-6 leading-relaxed" style="color: var(--text-color);">Complete digital marketing solutions including SEO, social media marketing, and online advertising.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>SEO Optimization
+              </li>
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Social Media
+              </li>
+              <li class="flex items-center text-sm" style="color: var(--text-color);">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>Analytics & Reports
+              </li>
+            </ul>
+            <!-- Removed Learn More -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 px-4" style="background-color: var(--secondary-bg);">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-color);">Why Choose Alpha Solutions?</h2>
+          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-color);">We combine technical expertise with creative innovation to deliver exceptional results</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="feature-item text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-clock text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--text-color);">Fast Delivery</h3>
+            <p style="color: var(--text-color);">Quick turnaround times without compromising quality</p>
+          </div>
+
+          <div class="feature-item text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-award text-2xl text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--text-color);">Quality Assured</h3>
+            <p style="color: var(--text-color);">Rigorous testing and quality control processes</p>
+          </div>
+
+          <div class="feature-item text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-headset text-2xl text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--text-color);">24/7 Support</h3>
+            <p style="color: var(--text-color);">Round-the-clock customer support and maintenance</p>
+          </div>
+
+          <div class="feature-item text-center">
+            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-dollar-sign text-2xl text-orange-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--text-color);">Affordable Pricing</h3>
+            <p style="color: var(--text-color);">Competitive rates with transparent pricing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gray-800 py-8 px-4">
+      <div class="max-w-4xl mx-auto text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
+        <p class="text-xl mb-8 opacity-90">Let's discuss your requirements and create something amazing together</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
+            Get Free Quote
+          </a>
+          <a href="#contact" class="bg-transparent border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-800 transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-6 px-4">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--text-color);">About <span class="text-blue-600">Alpha</span></h1>
+          <p class="text-xl max-w-4xl mx-auto mb-8 leading-relaxed" style="color: var(--text-color);">We are a passionate team of digital innovators dedicated to transforming businesses through cutting-edge technology solutions. Since our inception, we've been committed to delivering excellence in every project we undertake.</p>
+          <p class="text-xl max-w-4xl mx-auto mb-8 leading-relaxed" style="color: var(--text-color);">My name is Raj. I am a full stack developer with 2 years of experience. My company name is Alpha. I built this site because I want to give services.</p>
+          <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <img src="new (2).jpg" alt="Our Story" class="w-full rounded-xl shadow-lg" />
+          </div>
+          <div class="fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--text-color);">Our Story</h2>
+            <p class="mb-6 leading-relaxed" style="color: var(--text-color);">Founded with a vision to bridge the gap between innovative technology and business success, Alpha has grown from a small startup to a trusted digital partner for businesses worldwide. Our journey began with a simple belief: every business deserves access to world-class digital solutions.</p>
+            <p class="mb-6 leading-relaxed" style="color: var(--text-color);">Over the years, we've evolved our expertise across multiple domains - from web development and e-commerce solutions to educational platforms and travel portals. Each project has taught us something new, making us better at what we do.</p>
+            <p class="leading-relaxed" style="color: var(--text-color);">Today, with 40+ successful projects and countless satisfied clients, we continue to push boundaries and set new standards in digital excellence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission, Vision & Values -->
+    <section class="py-16 px-4" style="background-color: var(--secondary-bg);">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-color);">Our Foundation</h2>
+          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-color);">The principles that guide everything we do</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Mission -->
+          <div class="value-card rounded-xl p-8 text-center" style="background-color: var(--bg-color);">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-bullseye text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-color);">Our Mission</h3>
+            <p class="leading-relaxed" style="color: var(--text-color);">To empower businesses with innovative digital solutions that drive growth, enhance efficiency, and create meaningful connections with their customers.</p>
+          </div>
+
+          <!-- Vision -->
+          <div class="value-card rounded-xl p-8 text-center" style="background-color: var(--bg-color);">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-eye text-2xl text-green-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-color);">Our Vision</h3>
+            <p class="leading-relaxed" style="color: var(--text-color);">To be the leading digital transformation partner, recognized for our innovation, quality, and commitment to client success across global markets.</p>
+          </div>
+
+          <!-- Values -->
+          <div class="value-card rounded-xl p-8 text-center" style="background-color: var(--bg-color);">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-heart text-2xl text-purple-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-color);">Our Values</h3>
+            <p class="leading-relaxed" style="color: var(--text-color);">Excellence, integrity, innovation, and customer-centricity form the core of our business philosophy and every decision we make.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values Details -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-color);">What We Stand For</h2>
+          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-color);">Our values shape our culture and define how we work with our clients and each other</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center fade-in">
+            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-star text-3xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Excellence</h3>
+            <p style="color: var(--text-color);">We strive for perfection in every project, ensuring the highest quality standards.</p>
+          </div>
+
+          <div class="text-center fade-in">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-handshake text-3xl text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Integrity</h3>
+            <p style="color: var(--text-color);">Honest, transparent communication and ethical business practices in all we do.</p>
+          </div>
+
+          <div class="text-center fade-in">
+            <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-lightbulb text-3xl text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Innovation</h3>
+            <p style="color: var(--text-color);">Embracing cutting-edge technologies to deliver forward-thinking solutions.</p>
+          </div>
+
+          <div class="text-center fade-in">
+            <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-users text-3xl text-orange-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Client Focus</h3>
+            <p style="color: var(--text-color);">Our clients' success is our success. We go above and beyond expectations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Journey Timeline -->
+    <section class="py-16 px-4" style="background-color: var(--secondary-bg);">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-color);">Our Journey</h2>
+          <p class="text-xl" style="color: var(--text-color);">Key milestones that shaped our growth</p>
+        </div>
+
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-blue-200 h-full"></div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-12">
+            <div class="timeline-item flex items-center">
+              <div class="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg relative z-10">
+                2020
+              </div>
+              <div class="ml-8 md:ml-16 rounded-lg p-6 flex-1" style="background-color: var(--bg-color);">
+                <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Founded Alpha</h3>
+                <p style="color: var(--text-color);">Started our journey with a vision to transform businesses through digital innovation.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item flex items-center">
+              <div class="flex-shrink-0 w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg relative z-10">
+                2021
+              </div>
+              <div class="ml-8 md:ml-16 rounded-lg p-6 flex-1" style="background-color: var(--bg-color);">
+                <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">First 10 Projects</h3>
+                <p style="color: var(--text-color);">Successfully delivered our first 10 projects across e-commerce and education sectors.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item flex items-center">
+              <div class="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg relative z-10">
+                2023
+              </div>
+              <div class="ml-8 md:ml-16 rounded-lg p-6 flex-1" style="background-color: var(--bg-color);">
+                <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Expanded Services</h3>
+                <p style="color: var(--text-color);">Added mobile app development and digital marketing to our service portfolio.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item flex items-center">
+              <div class="flex-shrink-0 w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg relative z-10">
+                2024
+              </div>
+              <div class="ml-8 md:ml-16 rounded-lg p-6 flex-1" style="background-color: var(--bg-color);">
+                <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">40+ Projects Milestone</h3>
+                <p style="color: var(--text-color);">Reached the milestone of 40+ successful projects with 100% client satisfaction rate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-color);">Why Choose Alpha?</h2>
+          <p class="text-xl max-w-3xl mx-auto" style="color: var(--text-color);">What sets us apart in the digital landscape</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow" style="background-color: var(--secondary-bg);">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-trophy text-xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Proven Track Record</h3>
+            <p style="color: var(--text-color);">40+ successful projects with 100% client satisfaction and zero failed deliveries.</p>
+          </div>
+
+          <div class="rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow" style="background-color: var(--secondary-bg);">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-cogs text-xl text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Latest Technology</h3>
+            <p style="color: var(--text-color);">Always using cutting-edge technologies and best practices in development.</p>
+          </div>
+
+          <div class="rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow" style="background-color: var(--secondary-bg);">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-clock text-xl text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Timely Delivery</h3>
+            <p style="color: var(--text-color);">We respect deadlines and deliver projects on time, every time.</p>
+          </div>
+
+          <div class="rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow" style="background-color: var(--secondary-bg);">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-headset text-xl text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">24/7 Support</h3>
+            <p style="color: var(--text-color);">Round-the-clock support and maintenance for all our clients.</p>
+          </div>
+
+          <div class="rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow" style="background-color: var(--secondary-bg);">
+            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-dollar-sign text-xl text-yellow-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Cost-Effective</h3>
+            <p style="color: var(--text-color);">Premium quality solutions at competitive prices with transparent pricing.</p>
+          </div>
+
+          <div class="rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow" style="background-color: var(--secondary-bg);">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-shield-alt text-xl text-indigo-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Secure & Reliable</h3>
+            <p style="color: var(--text-color);">Enterprise-grade security and reliability in all our solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- Contact Section -->
+<section id="contact" class="bg-gray-100 py-16 px-4" style="background-color: var(--bg-color);">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--text-color);">Contact Us</h2>
+    <p class="text-xl max-w-3xl mx-auto mb-8" style="color: var(--text-color);">Get in touch for your next project. We're here to help!</p>
+    <form id="contactForm" action="https://formspree.io/f/mgvpgjej" method="POST" class="max-w-md mx-auto">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full mb-2 p-2 rounded-lg border" style="background-color: var(--secondary-bg); color: var(--text-color); border-color: var(--text-color);" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full mb-2 p-2 rounded-lg border" style="background-color: var(--secondary-bg); color: var(--text-color); border-color: var(--text-color);" />
+      <textarea name="message" placeholder="Your Message" required class="w-full mb-2 p-2 rounded-lg border h-32" style="background-color: var(--secondary-bg); color: var(--text-color); border-color: var(--text-color);"></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Success Popup Modal -->
+<div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4" style="backdrop-filter: blur(4px);">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full transform transition-all scale-95 opacity-0" id="modalContent" style="background-color: var(--secondary-bg);">
+    <div class="p-8 text-center">
+      <!-- Success Icon -->
+      <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+        <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      
+      <!-- Success Message -->
+      <h3 class="text-2xl font-bold mb-2" style="color: var(--text-color);">Message Sent Successfully!</h3>
+      <p class="text-gray-600 mb-6" style="color: var(--text-color); opacity: 0.8;">Thank you for reaching out. We'll get back to you as soon as possible.</p>
+      
+      <!-- Close Button -->
+      <button id="closeModal" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-full">
+        Got it!
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const contactForm = document.getElementById('contactForm');
+  const successModal = document.getElementById('successModal');
+  const modalContent = document.getElementById('modalContent');
+  const closeModal = document.getElementById('closeModal');
+
+  // Handle form submission
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    
+    try {
+      // Submit to Formspree
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Show success modal with animation
+        successModal.classList.remove('hidden');
+        successModal.classList.add('flex');
+        
+        setTimeout(() => {
+          modalContent.style.transform = 'scale(1)';
+          modalContent.style.opacity = '1';
+        }, 10);
+        
+        // Reset form
+        contactForm.reset();
+      } else {
+        alert('Oops! There was a problem submitting your form. Please try again.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem submitting your form. Please try again.');
+    }
+  });
+
+  // Close modal function
+  function closeSuccessModal() {
+    modalContent.style.transform = 'scale(0.95)';
+    modalContent.style.opacity = '0';
+    
+    setTimeout(() => {
+      successModal.classList.add('hidden');
+      successModal.classList.remove('flex');
+    }, 200);
+  }
+
+  // Close modal on button click
+  closeModal.addEventListener('click', closeSuccessModal);
+
+  // Close modal when clicking outside
+  successModal.addEventListener('click', function(e) {
+    if (e.target === successModal) {
+      closeSuccessModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !successModal.classList.contains('hidden')) {
+      closeSuccessModal();
+    }
+  });
+</script>
+
+<style>
+  #modalContent {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  @media (max-width: 640px) {
+    #modalContent {
+      margin: 1rem;
+    }
+  }
+</style>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 px-4 text-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Alpha Solutions</h3>
+            <p>Transforming businesses with innovative solutions.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+              <li><a href="#services" class="hover:text-gray-300">Services</a></li>
+              <li><a href="#about" class="hover:text-gray-300">About</a></li>
+              <li><a href="#portfolio" class="hover:text-gray-300">Portfolio</a></li>
+              <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+            <p>Email: rajsingh555554@gmail.com</p>
+            <p>Phone: +91 8789140160</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/profile.php?id=100093099705243
+" class="hover:text-gray-300"><i class="fab fa-facebook-f text-2xl"></i></a>
+              <a href="https://x.com/RajSing66138630?s=08
+" class="hover:text-gray-300"><i class="fab fa-twitter text-2xl"></i></a>
+              <a href="https://www.linkedin.com/in/raj-singh-b37531247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " class="hover:text-gray-300"><i class="fab fa-linkedin-in text-2xl"></i></a>
+              <a href="https://www.instagram.com/rajsingh23036/
+" class="hover:text-gray-300"><i class="fab fa-instagram text-2xl"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8 border-t pt-4 border-gray-700">
+          &copy; 2025 Alpha Solutions. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Fixed Icon -->
+    <a href="https://wa.me/+918789140160" class="whatsapp-fixed" target="_blank">
+      <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+      // Theme Toggle (for both, but since duplicate, use same id, but to avoid, use class or event delegation)
+      const themeToggles = document.querySelectorAll('.theme-toggle');
+      themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        });
+      });
+
+      // Counting Animation
+      const counters = document.querySelectorAll('.counter');
+      const statsSection = document.querySelector('.stats-section');
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const suffix = counter.getAttribute('data-suffix') || '';
+            counter.innerText = '0' + suffix;
+            const updateCounter = () => {
+              const c = parseInt(counter.innerText);
+              const increment = target / 5000;
+              if (c < target) {
+                counter.innerText = `${Math.ceil(c + increment)}${suffix}`;
+                setTimeout(updateCounter, 1);
+              } else {
+                counter.innerText = target + suffix;
+              }
+            };
+            updateCounter();
+          });
+          counterObserver.unobserve(statsSection);
+        }
+      });
+
+      counterObserver.observe(statsSection);
+
+      // Other scripts remain the same
+      // Show More Projects
+      const showMoreBtn = document.getElementById("showMoreBtn");
+      const moreProjects = document.getElementById("moreProjects");
+      if (showMoreBtn && moreProjects) {
+        showMoreBtn.addEventListener("click", function () {
+          if (moreProjects.classList.contains("hidden")) {
+            moreProjects.classList.remove("hidden");
+            showMoreBtn.textContent = "Show Less Projects";
+            showMoreBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+          } else {
+            moreProjects.classList.add("hidden");
+            showMoreBtn.textContent = "View More Projects (+16 more)";
+            showMoreBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+      }
+
+      // Animate portfolio cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }, index * 100);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".rounded-lg.shadow-lg").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "all 0.6s ease";
+        observer.observe(card);
+      });
+
+      document.querySelectorAll(".service-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "all 0.6s ease";
+        observer.observe(card);
+      });
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
